@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 900px;
+    background: url(pizza.jpg) no-repeat;
+    background-size: 2000px;
+}
+
+.mainscreen{
+    width:420px;
+    background: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding:50px 60px;
+}
+
+.mainscreen h1{
+    text-align: center;
+    font-size: 42px;
+}
+
+.mainscreen .input-box{
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input{
+    width:100%;
+    height:100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border:2px solid purple;
+    border-radius: 40px;
+    color: rgb(255, 255, 255);
+    padding:20px 45px 20px 20px;
+}
+
+.input-box input::placeholder{
+    color: rgb(255, 255, 255);
+}
+
+.input-box i{
+    position: absolute;
+    right:20px;
+    top:50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.mainscreen .remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+    color: white
+}
+
+.remember-forgot label input{
+    accent-color: white;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: white;
+    text-decoration: none;
+}
+.mainscreen .btn{
+    width:100%;
+    background: white;
+    height: 45px;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.mainscreen .sign-up{
+    text-align: center;
+    font-size: 14.5px;
+    margin-top: 20px;
+    color: white;
+}
+
+.mainscreen p a{
+    color: white;
+}
