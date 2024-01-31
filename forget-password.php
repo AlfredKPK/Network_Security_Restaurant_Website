@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>New User</title>
+        <title>Forget Password</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width,initial-scale=1.0">
             <link href="css/style.css" rel="stylesheet">
@@ -12,22 +12,21 @@
     </head>
     <body>
         <header class="header">
-            <p> </p>
             <nav class="navbar">
               <a href="index.php" class="index-btn">Login</a>
             </nav>
           </header>
 
         <div class="mainscreen">
-            <h1>New User</h1>
+            <h1>Forget Password</h1>
             <div class="input-box">
                 <h3>Email</h3>
-                <input type="text" placeholder="Email" required><br><br>
+                <input type="text" placeholder="email" required><br><br>
             </div>        
             <div class="input-box">
                 <h3>login ID</h3>
                 <label for="login-id"></label>
-                <input type="text" placeholder="Login ID" required"><br><br>
+                <input type="text" placeholder="login ID" required"><br><br>
             </div>        
             <div class="input-box">
                 <h3>Username</h3>
@@ -40,7 +39,7 @@
                 <input type="password" placeholder="Password" required><br><br>
             </div>      
             <div class="pfp-input">
-                <form action="upload.php">
+                <form action="/action_page.php">
                     <label for="pfp">Upload Profile Picture Here</label>
                     <input type="file" id="pfp" name="pfp" accept="image/*">
                 </form>
