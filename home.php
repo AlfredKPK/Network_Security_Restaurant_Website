@@ -1,3 +1,11 @@
+<?php
+  session_start();
+  if(!isset($_SESSION["loginid"]) || $_SESSION["loginid"] !== true){
+    header("location: login.php");
+    exit;
+  }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>

@@ -1,3 +1,42 @@
+<?php
+    require_once "config.php";
+    require_once "session.php";
+
+    $error ='';
+    if($_SERVER["REQUEST_METHOD"] =="POST" && isset($_POST['submit'])){
+        $loginid = trim ($_POST['loginid']);
+        if(empty($loginid)){
+            $error .= '<p class="error"> Please enter email.</p>';
+        }
+        if(empty($password)){
+            $error .= '<p class="error"> Please enter password.</p>';
+        }
+
+        if(empty($error)){
+            if($query = $db->prepare("SELECT * FROM users WHERE loginid = ?")){
+                $query->bind_param('s', $loginid);
+                $query->execute();
+                $row = $query->fetch();
+                if($row){
+                    if(password_verify($password, $row['password'])){
+                        $_SESSION['loginid'] = $row['id'];
+                        $_SESSION["user"] =$row;
+
+                        header("location: home.php");
+                        exit;
+                    } else {
+                        $error .='<p class="error"> The passwords is not valid.</p>';
+                    }
+                } else {
+                    $error .= '<p class="error"> No user exists with that login ID.</p>';
+                }
+            }
+            $query->close();
+        }
+        mysqli_close($db);
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,7 +74,7 @@
                     <p>No account? <a href="sign-up.php">Sign up here!</a>
                     <i class='bx bxs-hand-left'></i></p>
                 </div>
-                </form>
+            </form>
         </div>
     </body>
 </html>
