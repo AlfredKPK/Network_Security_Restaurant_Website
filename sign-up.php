@@ -4,7 +4,6 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         $email = trim($_POST['email']);
-        $loginid = trim($_POST['loginid']);
         $username = trim($_POST['username']);
         $password = trim($_POST['password']);
         $confirm_password = trim($_POST["password-confirm"]);
@@ -73,11 +72,6 @@
             <div class="input-box">
                 <h3>Email</h3>
                 <input type="email" placeholder="Email" required><br><br>
-            </div>        
-            <div class="input-box">
-                <h3>login ID</h3>
-                <label for="login-id"></label>
-                <input type="text" placeholder="Login ID" required"><br><br>
             </div>        
             <div class="input-box">
                 <h3>Username</h3>

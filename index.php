@@ -4,17 +4,19 @@
 
     $error ='';
     if($_SERVER["REQUEST_METHOD"] =="POST" && isset($_POST['submit'])){
-        $loginid = trim ($_POST['loginid']);
-        if(empty($loginid)){
-            $error .= '<p class="error"> Please enter email.</p>';
+        $loginid = trim ($_POST['email']);
+        $password = trim($_POST['password']);
+
+        if(empty($email)){
+            $error .= '<p class="error"> Please enter username.</p>';
         }
         if(empty($password)){
             $error .= '<p class="error"> Please enter password.</p>';
         }
 
         if(empty($error)){
-            if($query = $db->prepare("SELECT * FROM users WHERE loginid = ?")){
-                $query->bind_param('s', $loginid);
+            if($query = $db->prepare("SELECT * FROM users WHERE username = ?")){
+                $query->bind_param('s', $email);
                 $query->execute();
                 $row = $query->fetch();
                 if($row){
@@ -25,10 +27,10 @@
                         header("location: home.php");
                         exit;
                     } else {
-                        $error .='<p class="error"> The passwords is not valid.</p>';
+                        $error .='<p class="error"> Incorrect Login credientals.</p>';
                     }
                 } else {
-                    $error .= '<p class="error"> No user exists with that login ID.</p>';
+                    $error .= '<p class="error"> Incorrect Login credientals.</p>';
                 }
             }
             $query->close();
@@ -57,7 +59,7 @@
             <form action="">
                 <h1>Welcome!</h1>
                 <div class="input-box">
-                    <input type="text" placeholder="Login ID" required>
+                    <input type="text" placeholder="email" required>
                 </div>
 
                 <div class="input-box">
