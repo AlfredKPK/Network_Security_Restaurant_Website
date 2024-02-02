@@ -1,47 +1,26 @@
+<?php
+include_once "header.php";
+?>
+
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>Hello!</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="images/background.jpg">
+        <link href="css/style.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Login Page</title>
-    <link href="css/style.css" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
-
-<body>
-    <header class="header">
-        <p> </p>
-        <nav class="navbar">
-            <a href="index.php" class="return-btn">Login</a>
-        </nav>
-    </header>
-
-    <div class="mainscreen">
-        <form action="login-process.php" method="post">
-
-            <h1>Welcome!</h1>
-            <div class="input-box">
-                <input type="text" placeholder="Email/Username" required>
+    <body>
+        <header class="home" id="home">
+            <div class="time-open">
+              <span class="large">Open from 10am to 12pm</span>
             </div>
-
-            <div class="input-box">
-                <input type="password" placeholder="Password" required>
+            <div class="center">
+              <span class="small" style="font-size:100px">Pizza<br>Pasta</span>
+              <span class="medium" style="font-size:60px"><b><br>Spaghetti</b></span>
             </div>
-
-            <div class="remember-forgot">
-                <label><input type="checkbox">Remember me</label>
-                <a href="forget-password.php">Forgot password?</a>
-            </div>
-
-            <button type="submit" id="submit" submit class="submit">Login</button>
-            <div class="sign-up">
-                <p>No account? <a href="sign-up.php">Sign up here!</a>
-                    <i class='bx bxs-hand-left'></i>
-                </p>
-            </div>
-        </form>
-    </div>
-</body>
-
+          </header>
+    </body>
 </html>

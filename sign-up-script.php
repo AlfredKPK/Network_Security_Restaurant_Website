@@ -4,12 +4,13 @@
     $nickname = $_POST["nickname"];
     $password = $_POST["password"];
     $passwordconfirm = $_POST["password-confirm"];
-    $pfp = $_FILES["pfp"];
+    $pfp = $_POST["pfp"];
+    $role = 0;
 
     require_once "function.php";
     require_once "config.php";
     
-    if(emptySignup($email, $nickname, $password, $passwordconfirm, $pfp) !== false){
+    if(emptySignup($email, $nickname, $password, $passwordconfirm) !== false){
       header("location: sign-up.php?error=emptyinput");
       exit();
     }
@@ -27,6 +28,10 @@
     }
     if(emailExists($db, $email) !== false){
       header("location: sign-up.php?error=emailtaken");
+      exit();
+    }
+    if(passwordTooShort($password) !== false){
+      header("location: sign-up.php?error=passwordtooshort");
       exit();
     }
     createUser($db, $email, $nickname, $password, $pfp, $role);

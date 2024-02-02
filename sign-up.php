@@ -1,3 +1,7 @@
+<?php
+include_once "header.php";
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -14,15 +18,8 @@
 </head>
 
 <body>
-    <header class="header">
-        <p> </p>
-        <nav class="navbar">
-            <a href="index.php" class="return-btn">Login</a>
-        </nav>
-    </header>
-
     <div class="mainscreen">
-        <form action="sign-up-process.php" method="post">
+        <form action="sign-up-script.php" method="post">
             <h1>New User</h1>
             <div class="input-box">
                 <h3>Email</h3>
@@ -48,6 +45,30 @@
                 <input type="file" id="pfp" name="pfp" accept="image/*">
             </div>
             <button type="submit" id="submit" name="submit">Sign up!</button>
+            <div class="error-notice">
+            <?php
+                if(isset($_GET["error"])){
+                    if($_GET["error"] == "emptyinput"){
+                        echo"<p> Please fill in all fields.</p>";
+                    }
+                    if($_GET["error"] == "invalidemail"){
+                        echo"<p> Email is invalid.</p>";
+                    } 
+                    if($_GET["error"] == "epasswordsarenotsame"){
+                        echo"<p> Passwords does not match.</p>";
+                    }
+                    if($_GET["error"] == "usernametaken"){
+                        echo"<p> Username is taken already.</p>";
+                    }
+                    if($_GET["error"] == "emailtaken"){
+                        echo"<p> Email is taken already.</p>";
+                    }
+                    if($_GET["error"] == "passwordtooshort"){
+                        echo"<p> Password must be at least 6 characters long.</p>";
+                    }
+                }
+            ?>
+            </div>
         </form>
     </div>
 </body>
