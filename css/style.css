@@ -79,6 +79,13 @@ body{
 .largescreen .longdesc{
     font-size: 24px;
 }
+
+.largescreen .side-by-side{
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .largescreen .pfppage{
     font-size: 24px;
     text-align: center;   
@@ -88,6 +95,7 @@ body{
     text-align: center;
     padding: 10px;
 }
+
 
 .input-box input{
     width:100%;
