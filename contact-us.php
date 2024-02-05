@@ -6,7 +6,7 @@ include_once "header.php";
 <html>
 
 <head>
-    <title>About Us</title>
+    <title>Contact Us</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">

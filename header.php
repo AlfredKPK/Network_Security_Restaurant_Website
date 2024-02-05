@@ -17,7 +17,7 @@ session_start();
     <nav class="left">
       <?php
       if (isset($_SESSION['nickname'])) {
-        echo "Welcome back, " . $_SESSION['nickname'];
+        echo $_SESSION['pfp'] . "Welcome back, " . $_SESSION['nickname'];
       }
       ?>
     </nav>
