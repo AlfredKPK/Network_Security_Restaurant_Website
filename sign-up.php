@@ -40,10 +40,6 @@ include_once "header.php";
                 <label for="password-confirm"></label>
                 <input type="password" name="password-confirm" placeholder="Confirm Password" required><br><br>
             </div>
-            <div class="pfp-input">
-                <label for="pfp">Upload Profile Picture Here</label>
-                <input type="file" id="pfp" name="pfp" accept="image/*">
-            </div>
             <button type="submit" id="submit" name="submit">Sign up!</button>
             <div class="error-notice">
             <?php

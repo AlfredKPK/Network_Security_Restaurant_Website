@@ -38,7 +38,7 @@ body{
 
 .header a{
     padding: 20px;
-    font-size: 24px;
+    font-size: 20px;
     color: white;
     text-decoration: none;
 }
@@ -68,7 +68,7 @@ body{
 }
 
 .largescreen{
-        width:900px;
+        width:1000px;
         margin-top: 10%;
         background: rgba(0, 0, 0, 0.5);
         color: rgb(255, 255, 255);
@@ -96,6 +96,21 @@ body{
     padding: 10px;
 }
 
+.largescreen .admin-view .table .info-row{
+    font-size: 24px;
+}
+
+table, th, td {
+    border: 1px solid;
+    padding: 20px;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.largescreen .admin-view .top-row{
+    background-color: black;
+}
 
 .input-box input{
     width:100%;

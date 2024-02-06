@@ -25,25 +25,15 @@ include_once "header.php";
             <input type="text" placeholder="email" required><br><br>
         </div>
         <div class="input-box">
-            <h3>login ID</h3>
-            <label for="login-id"></label>
-            <input type="text" placeholder="login ID" required"><br><br>
-        </div>
-        <div class="input-box">
-            <h3>Username</h3>
-            <label for="nickname"></label>
-            <input type="text" placeholder="Username" required><br><br>
-        </div>
-        <div class="input-box">
             <h3>Password</h3>
             <label for="password"></label>
             <input type="password" placeholder="Password" required><br><br>
         </div>
-        <div class="pfp-input">
-            <form action="/action_page.php">
-                <label for="pfp">Upload Profile Picture Here</label>
-                <input type="file" id="pfp" name="pfp" accept="image/*">
-            </form>
+        <div class="input-box">
+                <h3>Confirm Password</h3>
+                <label for="password-confirm"></label>
+                <input type="password" name="password-confirm" placeholder="Confirm Password" required><br><br>
+            </div>
             <button type="button" submit class="btn">Continue</button>
         </div>
 </body>

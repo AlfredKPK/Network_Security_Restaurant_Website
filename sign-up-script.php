@@ -4,7 +4,6 @@
     $nickname = $_POST["nickname"];
     $password = $_POST["password"];
     $passwordconfirm = $_POST["password-confirm"];
-    $pfp = $_POST["pfp"];
     $role = 0;
 
     require_once "function.php";
@@ -34,7 +33,7 @@
       header("location: sign-up.php?error=passwordtooshort");
       exit();
     }
-    createUser($db, $email, $nickname, $password, $pfp, $role);
+    createUser($db, $email, $nickname, $password);
     exit();
   }
   else {

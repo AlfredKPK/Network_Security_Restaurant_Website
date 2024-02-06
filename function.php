@@ -96,20 +96,18 @@ function passwordTooShort($password){
   return $result;
 }
 
-function createUser($db, $email, $nickname, $password, $pfp, $role)
+function createUser($db, $email, $nickname, $password)
 {
-  $sql = "INSERT INTO users(email, nickname, pwd, pfp, isAdmin) VALUES (?, ?, ?, ?, ?);";
+  $sql = "INSERT INTO users(email, nickname, pwd) VALUES (?, ?, ?);";
   $check = mysqli_stmt_init($db);
   if (!mysqli_stmt_prepare($check, $sql)) {
     header("location: sign-up.php?error=databaseerror");
     exit();
   }
   $hashpassword = password_hash($password, PASSWORD_DEFAULT);
-  mysqli_stmt_bind_param($check, "ssssb", $email, $nickname, $hashpassword, $pfp, $role);
+  mysqli_stmt_bind_param($check, "sss", $email, $nickname, $hashpassword);
   mysqli_stmt_execute($check);
   mysqli_stmt_close($check);
-  $sql = "SELECT login-id FROM users ORDER BY id DESC LIMIT 1";
-  $sql2 = "INSERT INTO profileimg (login-id, status) VALUES ($sql, 1);";
   echo '<script>alert("Register successful! Please login again.")</script>'; 
   header("location: login.php?error=none");
   exit();
@@ -147,56 +145,11 @@ function loginUser($db , $email, $password)
   }
 }
 
-function checkimage($filename, $filetemp, $filesize, $fileerror)
-{
-  $fileexplode = explode(".", $filename);
-  $filelower = strtolower(end($fileexplode));
-  $filetype = array("jpg", "jpeg", "png", "tiff");
-
-  if(in_array($filelower, $filetype)){
-    if($fileerror === 0){
-      if($filesize < 10000000) {
-        $filenamecorrected = uniqid("", true).".".$filelower;
-        $filelocation = "EIE3117/upload/" .$filenamecorrected;
-        move_uploaded_file($filetemp, $filelocation);
-        header("location: changepfp.php?error=none");
-        exit();
-      } else{
-        header("location: changepfp.php?error=filetoolarge");
-        exit();
-      }
-    } else{
-      header("location: changepfp.php?error=somethingwrong");
-      exit();
-    }
-  } else {
-    header("location: changepfp.php?error=wrongformat");
-    exit();
-  }
-}
-
-function uploadimage($db, $filename)
-{
-  $sql = "SELECT * FROM users";
-  $result = mysqli_query($db, $sql);
-  if(mysqli_num_rows($result) > 0 ){
-    while($row = mysqli_fetch_assoc($result)){
-      $id = $row['login-id'];
-      $sqlimage = "SELECT * FROM profileimg WHERE userid='$id';";
-      $resultimage = mysqli_query($db, $sqlimage);
-      while($rowimage = mysqli_fetch_assoc($resultimage)){
-        echo "<div>";
-        if ($rowimage['status'] == 0){
-          $fileexplode = explode(".", $filename);
-          echo "<img src='upload/'.$id.$fileexplode>";
-        } else {
-          echo "<img src='upload/default.jpeg'>";
-        }
-        echo $row['nickname'];
-        echo "</div>";
-      }
-    }
-  } else{
-    header("location: changepfp.php?error=nouser");
-  }
-}
+#function getLoginId($db)
+#{
+#  $sql = "SELECT login-id from users where nickname ='".$_SESSION['nickname'];
+#  $result = mysqli_query($db, $sql);
+#  $row = mysqli_fetch_assoc($result);
+#  $loginid = $row['login-id'];
+#  return $loginid;
+#}
