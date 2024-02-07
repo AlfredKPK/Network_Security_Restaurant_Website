@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <?php
 
 function emptySignup($email, $nickname, $password, $passwordconfirm)
@@ -145,11 +146,28 @@ function loginUser($db , $email, $password)
   }
 }
 
-#function getLoginId($db)
-#{
-#  $sql = "SELECT login-id from users where nickname ='".$_SESSION['nickname'];
-#  $result = mysqli_query($db, $sql);
-#  $row = mysqli_fetch_assoc($result);
-#  $loginid = $row['login-id'];
-#  return $loginid;
-#}
+function emptyNewFood($foodname, $price, $desc)
+{
+  if (empty($foodname) || empty($price) || empty($desc)) {
+    $result = true;
+  } else {
+    $result = false;
+  }
+  return $result;
+}
+
+function createDish($db, $foodname, $price, $desc)
+{
+  $sql = "INSERT INTO dish(name, price, description) VALUES (?, ?, ?);";
+  $check = mysqli_stmt_init($db);
+  if (!mysqli_stmt_prepare($check, $sql)) {
+    header("location: sign-up.php?error=databaseerror");
+    exit();
+  }
+  mysqli_stmt_bind_param($check, "sss", $foodname, $price, $desc);
+  mysqli_stmt_execute($check);
+  mysqli_stmt_close($check);
+  echo '<script>alert("New Food Added!")</script>'; 
+  header("location: ../admin/menu.php?error=none");
+  exit();
+}

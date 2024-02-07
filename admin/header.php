@@ -9,7 +9,6 @@ require_once "../config.php";
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Login Page</title>
   <link href="../css/style.css" rel="stylesheet">
 </head>
 
@@ -18,9 +17,15 @@ require_once "../config.php";
     <nav class="left">
       <?php
       if (isset($_SESSION['nickname'])) {
-        echo "<p style='color:white;'>Welcome back, " . $_SESSION['nickname']."</p>";
+        $userimage = "../upload/pfp/" . $_SESSION['nickname'] . ".jpg";
+        $defaultimage = "../upload/default.jpg";
+        echo "<p style='color:white;'>Welcome back, " . $_SESSION['nickname'] . "</p>";
         echo "<a href='changepfp.php'> Profile </a>";
-        echo "<img src='../upload/pfp/" . $_SESSION['nickname']. ".jpg' width='20' height ='20'>";
+        if (file_exists($userimage)) {
+          echo "<img src='../upload/pfp/" . $_SESSION['nickname'] . ".jpg' width='20' height ='20'>";
+        } else {
+          echo "<img src='../upload/default.jpeg' width='20' height ='20'>";
+        }
       }
       ?>
     </nav>

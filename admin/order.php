@@ -25,7 +25,7 @@ include_once "header.php";
             <td>dish-id</td>
             <td>Qty</td>
             <td>Edit</td>
-            <td>Delete</td>
+            <td>Complete</td>
           </tr>
           </div>
           <?php
@@ -45,5 +45,4 @@ include_once "header.php";
     </div>
   </div>
 </body>
-
 </html>

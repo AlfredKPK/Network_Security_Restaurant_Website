@@ -14,27 +14,26 @@ include_once "header.php";
 
 <body>
     <div class="largescreen">
-        <div class="admin-view">
-            <h1 style="text-align:center;margin-top: -10%;padding:50px;">Food Menu</h3>
+        <div>
+            <h1 style="text-align:center;margin-top: -10%;padding:50px;">Details</h3>
                 <div class="side-by-side">
                     <?php
-                    $sql = "SELECT * FROM dish";
+                    $dishid = $_GET['dish'];
+                    $sql = "SELECT * FROM dish WHERE dishid = $dishid";
                     $result = $db->query($sql);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $image = $row['image'];
-                        $dishid = $row['dish-id'];
+                    $row = mysqli_fetch_assoc($result);
+                        $foodname = $row['name'];
+                        $nospacefoodname = str_replace(' ', '', $foodname);
                         echo "<tr>
-                              <td style='font-size: 24'>Dish: </td>
+                              <td style='text-align:center;'>Dish: </td>
                               <td>" . $row['name'] . "</td> <br>
-                              <td style='font-size: 24'>Description: </td>
+                              <td style='font-size:24'>Price: $</td>
+                              <td>" . $row['price'] . "HKD</td> <br>
+                              <td style='font-size:24;borde:10px'>Description: </td>
                               <td>" . $row['description'] . "</td> <br>
-                              <td style='font-size: 24'>Price: </td>
-                              <td>" . $row['price'] . "</td> <br>
                               <div class='pictures'>
-                              <img align='right' src='images/food/'.$image.'.png' style='width:300px;height:250px';>
-                              </div>
-                              <td>" . $row['image'] . "</td> <br>
-                              <a href='view-food.php?dish='.$dishid.'>More details Here</a>";     
+                              <img align='right' src='upload/food/$nospacefoodname.jpg' style='width:300px;height:250px'>
+                              </div>";    
                     ?>
                 </div>
                 <tr>

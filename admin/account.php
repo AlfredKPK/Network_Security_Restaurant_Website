@@ -25,10 +25,7 @@ include_once "../admin/header.php";
           <tr>
             <td>Login-id</td>
             <td>Nickname</td>
-            <td>Email</td>
             <td>Roles</td>
-            <td>Edit</td>
-            <td>Delete</td>
           </tr>
           </div>
           <?php
@@ -38,7 +35,6 @@ include_once "../admin/header.php";
             echo "<tr>
                   <td>" . $row['login-id'] . "</td>
                   <td>" . $row['nickname'] . "</td>
-                  <td>" . $row['email'] . "</td>
                   <td>" . $row['roles'] . "</td>";
           }
           ?>

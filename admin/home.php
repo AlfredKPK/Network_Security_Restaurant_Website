@@ -15,15 +15,13 @@ include_once "../admin/header.php";
 
 <body>
   <div class="largescreen">
-    <h1 style="text-align:center;margin-top: -10%;padding:50px;">Welcome to ______ Restaurant</h3>
+    <h1 style="text-align:center;margin-top: -10%;padding:50px;">This is the admin page</h3>
       <div class="side-by-side">
-        <p>Welcome to ____ Restaurant, in here, we offer Italic and Japanese food. <br><br>
-          The resturant is open from 10am to 12pm every day. <br><br>
-          We aim to provide premium food at a reasonable price!
+        <p>You can see different Tables.<br><br>
+        Account tab contains a list of users.<br><br>
+        Food menu tab contains all current food. You can add or delete food there.<br><br>
+        Order tab contains all the orders. You can see and complete orders there.<br><br>
         </p>
-        <div class="pictures">
-          <img align="right" src="images/homepicture.png" alt="Pizza" style="width:300px;height:250px" ;>
-        </div>
       </div>
   </div>
 </body>

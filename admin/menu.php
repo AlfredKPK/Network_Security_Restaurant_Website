@@ -14,39 +14,41 @@ include_once "header.php";
 </head>
 
 <body>
-<div class="largescreen">
+  <div class="largescreen">
     <div class="admin-view">
       <h1 style="text-align:center;margin-top: -10%;padding:50px;">Food Menu Overview</h3>
-      <table>
+        <form action="new-food.php" method="post">
+          <button type="submit" id="submit" name="submit" style='margin-bottom: 40px'>Add New Food</button>
+        </form>
+
+        <table>
           <div class="top-row">
-          <tr>
-            <td>dish-id</td>
-            <td>Dish</td>
-            <td>Desc</td>
-            <td>Price</td>
-            <td>Image</td>
-            <td>Edit</td>
-            <td>Delete</td>
-          </tr>
+            <tr>
+              <td>dish-id</td>
+              <td>Dish</td>
+              <td>Desc</td>
+              <td>Price</td>
+              <td>Edit</td>
+              <td>Delete</td>
+            </tr>
           </div>
           <?php
           $sql = "SELECT * FROM dish";
           $result = $db->query($sql);
-          while($row = mysqli_fetch_assoc($result)){
+          while ($row = mysqli_fetch_assoc($result)) {
             $dishid = $row['dish-id'];
             echo "<tr>
                   <td>" . $row['dish-id'] . "</td>
                   <td>" . $row['name'] . "</td>
                   <td>" . $row['description'] . "</td>
                   <td>" . $row['price'] . "</td>
-                  <td>" . $row['image'] . "</td>
-                  <td><button type='view' id='$dishid' name='$dishid'>Edit</button>;</td>
-                  <td><button type='view' id='$dishid' name='$dishid'>Delete</button></td>";
+                  <td><button type='edit' id='$dishid' name='$dishid'>Edit</button></td>
+                  <td><button type='delete' id='$dishid' name='$dishid'>Delete</button></td>";
           }
           ?>
           <tr>
           </tr>
-      </table>
+        </table>
     </div>
   </div>
 </body>
