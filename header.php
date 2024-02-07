@@ -17,10 +17,16 @@ require_once "config.php";
   <header class="header">
     <nav class="left">
       <?php
+      $userimage = "upload/pfp/".$_SESSION['nickname'].".jpg";
+      $defaultimage = "../upload/default.jpg";
       if (isset($_SESSION['nickname'])) {
         echo "<p style='color:white;'>Welcome back, " . $_SESSION['nickname']."</p>";
         echo "<a href='changepfp.php'> Profile </a>";
-        echo "<img src='upload/pfp/" . $_SESSION['nickname']. ".jpg' width='20' height ='20'>";
+        if(file_exists($userimage)){
+          echo "<img src='upload/pfp/" . $_SESSION['nickname']. ".jpg' width='20' height ='20'>";
+        } else {
+          echo "<img src='upload/default.jpeg' width='20' height ='20'>";
+        }
       }
       ?>
     </nav>

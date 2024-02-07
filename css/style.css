@@ -108,9 +108,6 @@ table, th, td {
     margin-right: auto;
   }
 
-.largescreen .admin-view .top-row{
-    background-color: black;
-}
 
 .input-box input{
     width:100%;

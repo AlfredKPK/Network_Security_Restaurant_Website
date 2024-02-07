@@ -20,7 +20,7 @@ include_once "header.php";
       <table>
           <div class="top-row">
           <tr>
-            <td>dash-id</td>
+            <td>dish-id</td>
             <td>Dish</td>
             <td>Desc</td>
             <td>Price</td>
@@ -33,12 +33,15 @@ include_once "header.php";
           $sql = "SELECT * FROM dish";
           $result = $db->query($sql);
           while($row = mysqli_fetch_assoc($result)){
+            $dishid = $row['dish-id'];
             echo "<tr>
                   <td>" . $row['dish-id'] . "</td>
                   <td>" . $row['name'] . "</td>
                   <td>" . $row['description'] . "</td>
                   <td>" . $row['price'] . "</td>
-                  <td>" . $row['image'] . "</td>";
+                  <td>" . $row['image'] . "</td>
+                  <td><button type='view' id='$dishid' name='$dishid'>Edit</button>;</td>
+                  <td><button type='view' id='$dishid' name='$dishid'>Delete</button></td>";
           }
           ?>
           <tr>

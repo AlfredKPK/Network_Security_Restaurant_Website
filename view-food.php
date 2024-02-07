@@ -16,16 +16,6 @@ include_once "header.php";
     <div class="largescreen">
         <div class="admin-view">
             <h1 style="text-align:center;margin-top: -10%;padding:50px;">Food Menu</h3>
-                <div class="top-row">
-                    <tr>
-                        <td>Dish</td> <br>
-                        <td>Description</td>
-                        <td>Price</td>
-                        <td>Image</td>
-                        <td>Edit</td>
-                        <td>Delete</td>
-                    </tr>
-                </div>
                 <div class="side-by-side">
                     <?php
                     $sql = "SELECT * FROM dish";
@@ -41,7 +31,7 @@ include_once "header.php";
                               <td style='font-size: 24'>Price: </td>
                               <td>" . $row['price'] . "</td> <br>
                               <div class='pictures'>
-                              <img align='right' src='images/food/'.$image.'.png' style='width:300px;height:250px'>
+                              <img align='right' src='images/food/'.$image.'.png' style='width:300px;height:250px';>
                               </div>
                               <td>" . $row['image'] . "</td> <br>
                               <a href='view-food.php?dish='.$dishid.'>More details Here</a>";     
