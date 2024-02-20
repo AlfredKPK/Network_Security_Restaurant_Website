@@ -38,6 +38,16 @@ include_once "header.php";
                 </tr>
         </div>
     </div>
+    <?php
+    if (isset($_GET["error"])) {
+        if ($_GET["error"] == "databaseerror") {
+            echo "<p> Something went wrong, please try again.</p>";
+        }
+        if ($_GET["error"] == "none") {
+            echo "<p> Order Complete!</p>";
+        }
+    }
+    ?>
 </body>
 
 </html>

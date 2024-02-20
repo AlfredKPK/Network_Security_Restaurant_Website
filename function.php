@@ -141,6 +141,7 @@ function loginUser($db , $email, $password)
   else if($checkpassword === true){
     session_start();
     $_SESSION["nickname"] = $userExists["nickname"];
+    setcookie("name", "$_SESSION[nickname]", time() + 86400);
     header("location: index.php");
     exit();
   }
@@ -161,7 +162,7 @@ function createDish($db, $foodname, $price, $desc)
   $sql = "INSERT INTO dish(name, price, description) VALUES (?, ?, ?);";
   $check = mysqli_stmt_init($db);
   if (!mysqli_stmt_prepare($check, $sql)) {
-    header("location: sign-up.php?error=databaseerror");
+    header("location: menu.php?error=databaseerror");
     exit();
   }
   mysqli_stmt_bind_param($check, "sss", $foodname, $price, $desc);
@@ -169,5 +170,27 @@ function createDish($db, $foodname, $price, $desc)
   mysqli_stmt_close($check);
   echo '<script>alert("New Food Added!")</script>'; 
   header("location: ../admin/menu.php?error=none");
+  exit();
+}
+
+function createOrder($db, $dishid, $qty)
+{
+  $sql = "SELECT * FROM users WHERE nickname=$_SESSION['nickname']";
+  $result = $db->query($sql);
+  $row = mysqli_fetch_assoc($result);
+  $nickname = $row['nickname'];
+
+
+  $sql = "INSERT INTO order(nickname, dish, qty,) VALUES (?, ?, ?);";
+  $check = mysqli_stmt_init($db);
+  if (!mysqli_stmt_prepare($check, $sql)) {
+    header("location: food-menu.php?error=databaseerror");
+    exit();
+  }
+  mysqli_stmt_bind_param($check, "ssi", $nicname, $dish, $qty);
+  mysqli_stmt_execute($check);
+  mysqli_stmt_close($check);
+  echo '<script>alert("Order Complete!")</script>'; 
+  header("location: food-menu.php?error=none");
   exit();
 }

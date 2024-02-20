@@ -21,8 +21,8 @@ include_once "header.php";
           <div class="top-row">
           <tr>
             <td>Order-id</td>
-            <td>login-id</td>
-            <td>dish-id</td>
+            <td>User</td>
+            <td>Dish</td>
             <td>Qty</td>
             <td>Edit</td>
             <td>Complete</td>
