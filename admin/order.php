@@ -1,5 +1,21 @@
 <?php
 include_once "header.php";
+function getFoodName($db, $dishid)
+{
+  $sqlname = "SELECT * FROM dish WHERE dishid = '$dishid'";
+  $result = $db->query($sqlname);
+  $row = mysqli_fetch_assoc($result);
+  $dishname = $row['name'];
+  return $dishname;
+}
+function getDishPrice($db, $dishid)
+{
+  $sqlname = "SELECT * FROM dish WHERE dishid = '$dishid'";
+  $result = $db->query($sqlname);
+  $row = mysqli_fetch_assoc($result);
+  $price = $row['price'];
+  return $price;
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,19 +40,23 @@ include_once "header.php";
             <td>User</td>
             <td>Dish</td>
             <td>Qty</td>
-            <td>Edit</td>
+            <td>Total Price</td>
             <td>Complete</td>
           </tr>
           </div>
           <?php
-          $sql = "SELECT * FROM order";
+          $sql = "SELECT * FROM foodorder";
           $result = $db->query($sql);
           while($row = mysqli_fetch_assoc($result)){
+            $totalprice = getDishPrice($db, $row['dishid']) * $row['qty'];
+            $dishid = $row['dishid'];
             echo "<tr>
                   <td>" . $row['order-id'] . "</td>
-                  <td>" . $row['login-id'] . "</td>
-                  <td>" . $row['dish-id'] . "</td>
-                  <td>" . $row['qty'] . "</td>";
+                  <td>" . $_SESSION['nickname'] . "</td>
+                  <td>" . getFoodName($db, $dishid) . "</td>
+                  <td>" . $row['qty'] . "</td>
+                  <td>" . $totalprice . "</td>
+                  <td><button type='delete' id='$dishid name='$dishid'>Delete</button></td>";
           }
           ?>
           <tr>

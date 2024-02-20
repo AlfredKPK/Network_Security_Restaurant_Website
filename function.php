@@ -1,6 +1,28 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <?php
 
+require_once "config.php";
+require_once "header.php";
+
+function getLoginid($db)
+{
+  $nickname = $_SESSION['nickname'];
+  $sqlname = "SELECT * FROM users WHERE nickname = '$nickname'";
+  $result = $db->query($sqlname);
+  $row = mysqli_fetch_assoc($result);
+  $loginid = $row['login-id'];
+  return $loginid;
+}
+
+function getnickname($db, $loginid)
+{
+  $sqlname = "SELECT * FROM users WHERE `login-id` = '$loginid'";
+  $result = $db->query($sqlname);
+  $row = mysqli_fetch_assoc($result);
+  $nickname = $row['nickname'];
+  return $nickname;
+}
+
 function emptySignup($email, $nickname, $password, $passwordconfirm)
 {
   if (empty($nickname) || empty($email) || empty($password) || empty($passwordconfirm)) {
@@ -173,24 +195,35 @@ function createDish($db, $foodname, $price, $desc)
   exit();
 }
 
-function createOrder($db, $dishid, $qty)
+function createOrder($db, $loginid, $dishid, $qty, $totalprice)
 {
-  $sql = "SELECT * FROM users WHERE nickname=$_SESSION['nickname']";
-  $result = $db->query($sql);
-  $row = mysqli_fetch_assoc($result);
-  $nickname = $row['nickname'];
-
-
-  $sql = "INSERT INTO order(nickname, dish, qty,) VALUES (?, ?, ?);";
+  $sql = "INSERT INTO foodorder(loginid, dishid, qty, totalprice) VALUES (?, ?, ?, ?);";
   $check = mysqli_stmt_init($db);
   if (!mysqli_stmt_prepare($check, $sql)) {
     header("location: food-menu.php?error=databaseerror");
     exit();
   }
-  mysqli_stmt_bind_param($check, "ssi", $nicname, $dish, $qty);
+  mysqli_stmt_bind_param($check, "iiid", $loginid, $dishid, $qty, $totalprice);
   mysqli_stmt_execute($check);
   mysqli_stmt_close($check);
   echo '<script>alert("Order Complete!")</script>'; 
-  header("location: food-menu.php?error=none");
+  header("location: view-food.php?dish=$dishid&order=complete");
+  exit();
+}
+
+function createComment($db, $loginid, $dishid, $rating, $info)
+{
+  $sql = "INSERT INTO comment(loginid, dishid, rating, info) VALUES (?, ?, ?, ?);";
+  $check = mysqli_stmt_init($db);
+  if (!mysqli_stmt_prepare($check, $sql)) {
+    header("location: food-menu.php?error=databaseerror");
+    exit();
+  }
+  mysqli_stmt_bind_param($check, "iiis", $loginid, $dishid, $rating, $info);
+  mysqli_stmt_execute($check);
+  mysqli_stmt_close($check);
+  echo '<script>alert("Thank you for your review!")</script>'; 
+
+  header("location: food-menu.php?error=comment");
   exit();
 }

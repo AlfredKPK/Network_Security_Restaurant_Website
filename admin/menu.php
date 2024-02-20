@@ -28,7 +28,6 @@ include_once "header.php";
               <td>Dish</td>
               <td>Desc</td>
               <td>Price</td>
-              <td>Edit</td>
               <td>Delete</td>
             </tr>
           </div>
@@ -36,13 +35,12 @@ include_once "header.php";
           $sql = "SELECT * FROM dish";
           $result = $db->query($sql);
           while ($row = mysqli_fetch_assoc($result)) {
-            $dishid = $row['dish-id'];
+            $dishid = $row['dishid'];
             echo "<tr>
-                  <td>" . $row['dish-id'] . "</td>
+                  <td>" . $row['dishid'] . "</td>
                   <td>" . $row['name'] . "</td>
                   <td>" . $row['description'] . "</td>
                   <td>" . $row['price'] . "</td>
-                  <td><button type='edit' id='$dishid' name='$dishid'>Edit</button></td>
                   <td><button type='delete' id='$dishid' name='$dishid'>Delete</button></td>";
           }
           ?>

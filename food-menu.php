@@ -17,6 +17,19 @@ include_once "header.php";
         <div>
             <h1 style="text-align:center;margin-top: -10%;padding:50px;">Food Menu</h3>
                 <?php
+                if (isset($_GET["error"])) {
+                    if ($_GET["error"] == "databaseerror") {
+                        echo "<p style='text-align:center;'> Something went wrong, please try again.</p>";
+                    }
+                    if ($_GET["error"] == "none") {
+                        echo "<p style='text-align:center;'> Order Complete!</p>";
+                    }
+                    if ($_GET["error"] == "comment") {
+                        echo "<p style='text-align:center;'> Thank You for your comment!</p>";
+                    }
+                }
+                ?>
+                <?php
                 $sql = "SELECT * FROM dish";
                 $result = $db->query($sql);
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -26,28 +39,21 @@ include_once "header.php";
                     echo "<div class='side-by-side'>
                             <tr>
                                 <td>" . $row['name'] . "</td><br>
-                                <td><a href='view-food.php?dish=$dishid' class='button'>More details Here</a></td>
                             </tr>
                             <div class='pictures'>
                             <img align='right' src='upload/food/$nospacefoodname.jpg' style='width:300px;height:250px'>
                             </div>
-                          </div>";
+                          </div>
+                          <form action='view-food.php?dish=$dishid' method='post'>
+                          <button type='submit' id='submit' name='submit'>More details Here</button>
+                          </form>
+                          ";
                 }
                 ?>
                 <tr>
                 </tr>
         </div>
     </div>
-    <?php
-    if (isset($_GET["error"])) {
-        if ($_GET["error"] == "databaseerror") {
-            echo "<p> Something went wrong, please try again.</p>";
-        }
-        if ($_GET["error"] == "none") {
-            echo "<p> Order Complete!</p>";
-        }
-    }
-    ?>
 </body>
 
 </html>
