@@ -87,12 +87,6 @@ body{
     font-size: 24px;
 }
 
-.largescreen .side-by-side{
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .largescreen .pfppage{
     font-size: 24px;
     text-align: center;   
@@ -105,6 +99,25 @@ body{
 
 .largescreen .admin-view .table .info-row{
     font-size: 24px;
+}
+
+#comments ul{
+    list-style: none;
+    background: rgb(0, 0, 0);
+}
+
+#comments ul li{
+    display: inline-block;
+    position: relative;
+}
+
+#comments ul li p{
+    display: block;
+    padding: 20px 25px;
+    color: #fff8cf;
+    text-decoration: none;
+    align-self: start;
+    font-size: 20px;
 }
 
 table, th, td {
@@ -132,6 +145,7 @@ table, th, td {
 .input-box input::placeholder{
     color: rgb(255, 255, 255);
 }
+
 
 .input-box i{
     position: absolute;

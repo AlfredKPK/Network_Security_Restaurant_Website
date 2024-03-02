@@ -82,16 +82,20 @@ require_once "function.php";
                 <h1 style="text-align:center;margin-top: -10%;padding:50px;">Reviews</h1>
                 <div class="comments">
                     <?php
+                    $count = 1;
                     $sql = "SELECT * FROM comment WHERE dishid = $dishid";
                     $result = $db->query($sql);
                     while ($row = mysqli_fetch_assoc($result)) {
                         $nickname = getnickname($db, $row['loginid']);
-                        echo "<td style='text-align:center;'>Reviewer: </td>
-                        <td>" . $nickname . "</td>
-                        <td style='font-size:24'>Rating: </td>
-                        <td>" . $row['rating'] . " Out of 10.</td> <br>
-                        <td style='font-size:24;border:10px'>Review: <br> </td>
-                        <td>" . $row['info'] . "</td> <br>";
+                        echo "<ul id='comments' style='list-style: none;'>
+                        </li> $count. </li>
+                                <li style='display:inline-block;position:relative;'>Reviewer: <b>$nickname</b></li>
+                                <li style='display:inline-block;position:relative;padding: 20px 25px;align-self: start;'>Rating: <b>$row[rating]</b></li>
+                              </ul>
+                                <p style='font-size: 18px'><b>Comment:</b><p><br> 
+                                <p style=''>$row[info]</p>
+                              ";
+                        $count = $count + 1;
                     }
                     ?>
                 </div>

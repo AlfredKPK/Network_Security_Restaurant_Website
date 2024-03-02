@@ -50,13 +50,15 @@ function getDishPrice($db, $dishid)
           while($row = mysqli_fetch_assoc($result)){
             $totalprice = getDishPrice($db, $row['dishid']) * $row['qty'];
             $dishid = $row['dishid'];
-            echo "<tr>
+            echo "<form action='order-script.php' method='post'>
+                  <tr>
                   <td>" . $row['order-id'] . "</td>
                   <td>" . $_SESSION['nickname'] . "</td>
                   <td>" . getFoodName($db, $dishid) . "</td>
                   <td>" . $row['qty'] . "</td>
                   <td>" . $totalprice . "</td>
-                  <td><button type='delete' id='$dishid name='$dishid'>Delete</button></td>";
+                  <td><button type='submit' id='$dishid name='$dishid'>Completed</button></td>
+                  </form>";
           }
           ?>
           <tr>
@@ -66,3 +68,7 @@ function getDishPrice($db, $dishid)
   </div>
 </body>
 </html>
+
+<?php
+
+?>

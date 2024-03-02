@@ -36,18 +36,18 @@ include_once "header.php";
                     $foodname = $row['name'];
                     $nospacefoodname = str_replace(' ', '', $foodname);;
                     $dishid = $row['dishid'];
-                    echo "<div class='side-by-side'>
-                            <tr>
-                                <td>" . $row['name'] . "</td><br>
-                            </tr>
-                            <div class='pictures'>
+                    echo "
+                        <div class='wrapper'>
                             <img align='right' src='upload/food/$nospacefoodname.jpg' style='width:300px;height:250px'>
+                            <div class='text-box'>
+                                <p style='margin: 50px auto;width: 70%;font-size:48px;'>Food: $foodname
+                                </p>
                             </div>
-                          </div>
-                          <form action='view-food.php?dish=$dishid' method='post'>
-                          <button type='submit' id='submit' name='submit'>More details Here</button>
-                          </form>
-                          ";
+                        </div>  
+                        <form action='view-food.php?dish=$dishid' method='post'>
+                        <button type='submit' id='submit' name='submit'>More details Here</button>
+                        </form>
+                        ";
                 }
                 ?>
                 <tr>

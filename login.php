@@ -28,7 +28,6 @@ include_once "header.php";
 
             <div class="remember-forgot">
                 <label><input type="checkbox">Remember me</label>
-                <a href="forget-password.php">Forgot password?</a>
             </div>
 
             <button type="submit" id="submit" name="submit">Login</button>

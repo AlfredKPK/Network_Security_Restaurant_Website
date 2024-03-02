@@ -16,12 +16,11 @@ include_once "header.php";
 <body>
     <div class="largescreen">
         <div class="longdesc">
-            <p>Welcome to [Restaurant Name], where culinary excellence meets warm hospitality. 
-            <br><br>We pride ourselves on offering an exceptional gastronomic experience with outstanding food, impeccable service, and a delightful ambiance. Our passionate chefs craft each dish with meticulous attention to detail, using only the finest and freshest ingredients.
+            <p>Welcome to Good Food Restaurant, where culinary excellence meets warm hospitality. 
+            <br><br>We offer the exceptional quality of Italian and Japanese dishes. All dishes go through a extermely tight qualtiy check to make sure no bad food are let out of the kitchen.
             <br><br>Whether you're celebrating a special occasion or enjoying a casual gathering, our welcoming atmosphere, stylish décor, and attentive staff create the perfect setting for an unforgettable dining experience.
-            <br><br>We accommodate diverse preferences and dietary needs with a menu that celebrates tradition and innovation, including vegetarian, vegan, and gluten-free options.
-            <br><br>Join us at [Restaurant Name] for a memorable occasion, where exceptional flavors, genuine connections, and lasting memories await you.
-            <br><br> OpenAI. (2024). ChatGPT (Feb 2 version) [Large language model]. https://chat.openai.com/chat
+            <br><br>We accoommodate different degrees of special diety needs, such as vegetarians, vegas. We have specialized food that suits such customers.
+            <br><br>Join us at Good Food Restaurant for a memorable occasion, where exceptional flavors, genuine connections, and lasting memories await you.
             </p>
 
         </div>

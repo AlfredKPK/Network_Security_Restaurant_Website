@@ -15,14 +15,14 @@ include_once "header.php";
 
 <body>
   <div class="largescreen">
-  <h1 style="text-align:center;margin-top: -10%;padding:50px;">Welcome to ______ Restaurant</h3>
+  <h1 style="text-align:center;margin-top: -10%;padding:50px;">Welcome to Good Food Restaurant</h3>
     <div class="side-by-side">
-        <p>Welcome to ____ Restaurant, in here, we offer Italic and Japanese food. <br><br>
+        <p>Welcome to Good Food Restaurant, in here, we offer Italic and Japanese food. <br><br>
         The resturant is open from 10am to 12pm every day. <br><br>
         We aim to provide premium food at a reasonable price!
         </p>
         <div class="pictures">
-          <img align="right" src="images/homepicture.png" alt="Pizza" style="width:300px;height:250px" ;>
+          <img src="images/homepicture.png" alt="Pizza" style="width:300px;height:250px" ;>
         </div>
     </div>
   </div>
