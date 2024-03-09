@@ -20,6 +20,19 @@ include_once "header.php";
         <form action="new-food.php" method="post">
           <button type="submit" id="submit" name="submit" style='margin-bottom: 40px'>Add New Food</button>
         </form>
+        <?php
+          if (isset($_GET["error"])) {
+            if ($_GET["error"] == "databaseerror") {
+                echo "<p style='text-align:center;'> Something went wrong, please try again.</p>";
+            }
+            if ($_GET["error"] == "none") {
+              echo "<p style='text-align:center;'> Food deleted successfully!</p>";
+            }
+            if ($_GET["error"] == "unfinishedorders") {
+              echo "<p style='text-align:center;'> Please complete all orders before deleting this food.</p>";
+            } 
+          }
+        ?>
 
         <table>
           <div class="top-row">
@@ -41,7 +54,7 @@ include_once "header.php";
                   <td>" . $row['name'] . "</td>
                   <td>" . $row['description'] . "</td>
                   <td>" . $row['price'] . "</td>
-                  <td><button type='delete' id='$dishid' name='$dishid'>Delete</button></td>";
+                  <td><a href='menu-script.php?dish=$dishid'> Delete </a></td>";
           }
           ?>
           <tr>

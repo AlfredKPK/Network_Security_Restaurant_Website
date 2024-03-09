@@ -20,7 +20,7 @@ require_once "../config.php";
         $userimage = "../upload/pfp/" . $_SESSION['nickname'] . ".jpg";
         $defaultimage = "../upload/default.jpg";
         echo "<p style='color:white;'>Welcome back, " . $_SESSION['nickname'] . "</p>";
-        echo "<a href='changepfp.php'> Profile </a>";
+        echo "<a href='../changepfp.php'> Profile </a>";
         if (file_exists($userimage)) {
           echo "<img src='../upload/pfp/" . $_SESSION['nickname'] . ".jpg' width='20' height ='20'>";
         } else {

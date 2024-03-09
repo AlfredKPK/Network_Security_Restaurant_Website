@@ -40,7 +40,7 @@ include_once "header.php";
                         <div class='wrapper'>
                             <img align='right' src='upload/food/$nospacefoodname.jpg' style='width:300px;height:250px'>
                             <div class='text-box'>
-                                <p style='margin: 50px auto;width: 70%;font-size:48px;'>Food: $foodname
+                                <p style='margin: 50px auto;width: 70%;font-size:48px;'>$foodname
                                 </p>
                             </div>
                         </div>  

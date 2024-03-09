@@ -1,14 +1,11 @@
 <?php
-if (isset($_POST["submit"])) {
-  $sql = "DELETE FROM foodorder WHERE id=$";
-
-  if ($conn->query($sql) === TRUE) {
-    echo "Record deleted successfully";
-  } else {
-    echo "Error deleting record: " . $conn->error;
+  require_once "header.php";
+  $orderid = $_GET['order'];
+  $sql = "DELETE FROM foodorder where orderid = $orderid";
+  $query_run = mysqli_query($db, $sql);
+  if($query_run){
+  header("location: order.php?error=none");
   }
-  exit();
-} else {
-  header("location: ../index.php");
-  exit();
-}
+  else{
+  header("location: order.php?error=databaseerror");
+  }

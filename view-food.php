@@ -26,16 +26,24 @@ require_once "function.php";
                     $row = mysqli_fetch_assoc($result);
                     $foodname = $row['name'];
                     $nospacefoodname = str_replace(' ', '', $foodname);
-                    echo "<tr>
-                              <td style='text-align:center;'>Dish: </td>
-                              <td>" . $row['name'] . "</td> <br>
-                              <td style='font-size:24'>Price: $</td>
-                              <td>" . $row['price'] . "HKD</td> <br>
-                              <td style='font-size:24;border:10px'>Description: </td>
-                              <td>" . $row['description'] . "</td> <br>
-                              <div class='pictures'>
+                    echo "    <div class='pictures'>
                               <img align='right' src='upload/food/$nospacefoodname.jpg' style='width:300px;height:250px'>
-                              </div>";
+                              </div>
+                              <table>
+                                <tr>
+                                    <td>Dish: </td>
+                                    <td>" . $row['name'] . "</td> <br>
+                                </tr>
+                                <tr>
+                                    <td>Price:</td>
+                                    <td>$" . $row['price'] . "HKD</td> <br>
+                                </tr>
+                                <tr>
+                                    <td>Description: </td>
+                                    <td>" . $row['description'] . "</td> <br>
+                                </tr>
+                              </table>
+                              ";
                     ?>
                 </div>
                 <?php
@@ -87,14 +95,17 @@ require_once "function.php";
                     $result = $db->query($sql);
                     while ($row = mysqli_fetch_assoc($result)) {
                         $nickname = getnickname($db, $row['loginid']);
-                        echo "<ul id='comments' style='list-style: none;'>
+                        echo "
+                        <div class='comments' style='border: 1px solid;'>
+                        <ul id='comments' style='list-style: none;'>
                         </li> $count. </li>
                                 <li style='display:inline-block;position:relative;'>Reviewer: <b>$nickname</b></li>
                                 <li style='display:inline-block;position:relative;padding: 20px 25px;align-self: start;'>Rating: <b>$row[rating]</b></li>
                               </ul>
                                 <p style='font-size: 18px'><b>Comment:</b><p><br> 
                                 <p style=''>$row[info]</p>
-                              ";
+                        </div>
+                                ";
                         $count = $count + 1;
                     }
                     ?>
