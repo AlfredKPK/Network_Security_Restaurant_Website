@@ -103,7 +103,7 @@ require_once "function.php";
                                 <li style='display:inline-block;position:relative;padding: 20px 25px;align-self: start;'>Rating: <b>$row[rating]</b></li>
                               </ul>
                                 <p style='font-size: 18px'><b>Comment:</b><p><br> 
-                                <p style=''>$row[info]</p>
+                                <p style=''>".htmlspecialchars($row['info'])."</p>
                         </div>
                                 ";
                         $count = $count + 1;

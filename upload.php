@@ -13,7 +13,7 @@ if(isset($_POST["submit"])){
 
   $fileexplode = explode(".", $filename);
   $filelower = strtolower(end($fileexplode));
-  $filetype = array("jpg", "jpeg", "png", "tiff");
+  $filetype = array("jpg", "jpeg", "png", "tiff", "webm");
 
   if(in_array($filelower, $filetype)){
     if($fileerror === 0){

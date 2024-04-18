@@ -1,7 +1,8 @@
 <?php
   if(isset($_POST["submit"])){
     $email = $_POST["email"];
-    $nickname = $_POST["nickname"];
+    $nicknametemp = $_POST["nickname"];
+    $nickname = preg_replace("/[^a-zA-Z0-9]/", "", $nicknametemp);
     $password = $_POST["password"];
     $passwordconfirm = $_POST["password-confirm"];
     $role = 0;

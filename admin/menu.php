@@ -51,10 +51,10 @@ include_once "header.php";
             $dishid = $row['dishid'];
             echo "<tr>
                   <td>" . $row['dishid'] . "</td>
-                  <td>" . $row['name'] . "</td>
-                  <td>" . $row['description'] . "</td>
+                  <td>" . htmlspecialchars($row['name']) . "</td>
+                  <td>" . htmlspecialchars($row['description']) . "</td>
                   <td>" . $row['price'] . "</td>
-                  <td><a href='menu-script.php?dish=$dishid'> Delete </a></td>";
+                  <td><a href='menu-script.php?dish=$dishid' style='color:white'> Delete </a></td>";
           }
           ?>
           <tr>

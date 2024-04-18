@@ -78,7 +78,7 @@ function getNickname($db, $loginid)
                   <td>" . getFoodName($db, $dishid) . "</td>
                   <td>" . $row['qty'] . "</td>
                   <td>" . $totalprice . "</td>
-                  <td><a href='order-script.php?order=$orderid'> Completed </a></td>";
+                  <td><a href='order-script.php?order=$orderid' style='color:white'> Completed </a></td>";
           }
           ?>
           <tr>

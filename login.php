@@ -30,6 +30,8 @@ include_once "header.php";
                 <label><input type="checkbox">Remember me</label>
             </div>
 
+            <div class="g-recaptcha" data-sitekey="6LdXUb8pAAAAAJXVCg43UZi1u0NLTda78NtEXZez"></div>
+
             <button type="submit" id="submit" name="submit">Login</button>
             <div class="sign-up">
                 <p>No account? <a href="sign-up.php">Sign up here!</a>
@@ -37,18 +39,20 @@ include_once "header.php";
                 </p>
             </div>
             <div class="error-notice">
-            <?php
-                if(isset($_GET["error"])){
-                    if($_GET["error"] == "emptyinput"){
-                        echo"<p> Please fill in all fields.</p>";
+                <?php
+                if (isset($_GET["error"])) {
+                    if ($_GET["error"] == "emptyinput") {
+                        echo "<p> Please fill in all fields.</p>";
                     }
-                    if($_GET["error"] == "wrongcredentials"){
-                        echo"<p> Incorrect Login Credentials</p>";
+                    if ($_GET["error"] == "wrongcredentials") {
+                        echo "<p> Incorrect Login Credentials</p>";
                     }
                 }
-            ?>
+                ?>
         </form>
     </div>
 </body>
+
+
 
 </html>
