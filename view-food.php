@@ -32,15 +32,15 @@ require_once "function.php";
                               <table>
                                 <tr>
                                     <td>Dish: </td>
-                                    <td>" . $row['name'] . "</td> <br>
+                                    <td>" . htmlspecialchars($row['name']) . "</td> <br>
                                 </tr>
                                 <tr>
                                     <td>Price:</td>
-                                    <td>$" . $row['price'] . "HKD</td> <br>
+                                    <td>$" . htmlspecialchars($row['price']) . "HKD</td> <br>
                                 </tr>
                                 <tr>
                                     <td>Description: </td>
-                                    <td>" . $row['description'] . "</td> <br>
+                                    <td>" . htmlspecialchars($row['description']) . "</td> <br>
                                 </tr>
                               </table>
                               ";

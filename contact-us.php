@@ -16,7 +16,7 @@ include_once "header.php";
 <body>
     <div class="largescreen">
         <div class="longdesc">
-            <p>For further information or to get in touch with us, here are the contact details for [Restaurant Name]:
+            <p>For further information or to get in touch with us, here are the contact details for Good Food Restaurant:
                 <br><br>Address: 123 Road, TST, Kowloon
                 <br><br>City: Hong Kong
                 <br><br>Phone: 12345678
